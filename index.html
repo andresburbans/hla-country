@@ -102,38 +102,61 @@
     <!-- Booking Widget (desktop) -->
     <div class="booking-widget" id="bookingWidget" role="form" aria-label="Reservar habitación">
       <h3 class="booking-widget-title">Consultar disponibilidad</h3>
-      <div class="booking-room-type">
-        <label for="roomType">Tipo de habitación</label>
-        <select id="roomType" aria-describedby="roomTypeDesc">
-          <option value="individual">Individual - $50.000</option>
-          <option value="doble">Doble - $60.000</option>
-          <option value="confort">Confort - $60.000</option>
-        </select>
+      
+      <div class="lux-field-group">
+        <div class="lux-select-wrap">
+          <select id="roomType" aria-describedby="roomTypeDesc">
+            <option value="individual">Habitación Individual</option>
+            <option value="doble">Habitación Doble</option>
+            <option value="confort">Habitación Confort</option>
+          </select>
+          <svg class="lux-select-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
         <span id="roomTypeDesc" class="visually-hidden">Seleccione el tipo de habitación</span>
       </div>
-      <div class="booking-dates">
-        <div class="booking-date-group">
-          <label for="checkin">Llegada</label>
-          <input type="date" id="checkin" aria-describedby="checkinDesc">
+
+      <div class="lux-date-grid">
+        <div class="lux-date-card">
+          <span class="lux-date-label">Llegada</span>
+          <div class="lux-date-display">
+            <span class="lux-date-big" id="visualInDay">--</span>
+            <div class="lux-date-details">
+              <span id="visualInMonth">Mes</span>
+              <span id="visualInYear">Año</span>
+            </div>
+            <svg class="lux-date-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            <input type="date" id="checkin" aria-describedby="checkinDesc">
+          </div>
           <span id="checkinDesc" class="visually-hidden">Seleccione fecha de llegada</span>
         </div>
-        <div class="booking-date-group">
-          <label for="checkout">Salida</label>
-          <input type="date" id="checkout" aria-describedby="checkoutDesc">
+
+        <div class="lux-date-card">
+          <span class="lux-date-label">Salida</span>
+          <div class="lux-date-display">
+            <span class="lux-date-big" id="visualOutDay">--</span>
+            <div class="lux-date-details">
+              <span id="visualOutMonth">Mes</span>
+              <span id="visualOutYear">Año</span>
+            </div>
+            <svg class="lux-date-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            <input type="date" id="checkout" aria-describedby="checkoutDesc">
+          </div>
           <span id="checkoutDesc" class="visually-hidden">Seleccione fecha de salida</span>
         </div>
       </div>
-      <div class="booking-guests">
-        <label id="guestLabel">Huéspedes</label>
-        <div class="guest-counter" role="group" aria-labelledby="guestLabel">
-          <button type="button" id="guestMinus" aria-label="Reducir número de huéspedes">−</button>
-          <span id="guestCount" aria-live="polite" aria-atomic="true">1</span>
-          <button type="button" id="guestPlus" aria-label="Aumentar número de huéspedes">+</button>
+
+      <div class="lux-extras-row">
+        <span class="lux-guests-label">Huéspedes</span>
+        <div class="lux-counter">
+          <button type="button" id="guestMinus" aria-label="Menos">-</button>
+          <span id="guestCount" aria-live="polite">1</span>
+          <button type="button" id="guestPlus" aria-label="Más">+</button>
         </div>
       </div>
-      <button type="button" class="booking-submit" id="viewRoomsBtn">
+
+      <button type="button" class="lux-submit-btn" id="viewRoomsBtn">
         Ver habitaciones y precios
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
     </div>
 

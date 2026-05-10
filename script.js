@@ -75,6 +75,27 @@
   checkoutInput.value = formatDate(tomorrow);
   checkoutInput.min = formatDate(tomorrow);
 
+  /* ── Update Visual Lux Dates ── */
+  const monthsES = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+  
+  function updateVisualDates() {
+    const dIn = new Date(checkinInput.value + 'T12:00:00');
+    const dOut = new Date(checkoutInput.value + 'T12:00:00');
+    
+    if(!isNaN(dIn)) {
+      document.getElementById('visualInDay').innerText = dIn.getDate() + '.';
+      document.getElementById('visualInMonth').innerText = monthsES[dIn.getMonth()];
+      document.getElementById('visualInYear').innerText = dIn.getFullYear();
+    }
+    if(!isNaN(dOut)) {
+      document.getElementById('visualOutDay').innerText = dOut.getDate() + '.';
+      document.getElementById('visualOutMonth').innerText = monthsES[dOut.getMonth()];
+      document.getElementById('visualOutYear').innerText = dOut.getFullYear();
+    }
+  }
+
+  updateVisualDates();
+
   checkinInput.addEventListener('change', () => {
     const minOut = new Date(checkinInput.value);
     minOut.setDate(minOut.getDate() + 1);
@@ -82,7 +103,10 @@
     if (new Date(checkoutInput.value) <= new Date(checkinInput.value)) {
       checkoutInput.value = formatDate(minOut);
     }
+    updateVisualDates();
   });
+
+  checkoutInput.addEventListener('change', updateVisualDates);
 
   /* ── Booking modal ── */
   const modal = document.getElementById('bookingModal');
