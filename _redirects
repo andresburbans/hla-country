@@ -1,3 +1,2 @@
-# Clean URLs for Cloudflare Pages
+# Clean URL: strip /index.html if someone navigates there directly
 /index.html / 301
-/* /index.html 200
