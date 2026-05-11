@@ -630,12 +630,13 @@
       },
       onClose: function (selectedDates, dateStr, instance) {
         if (!isDesktop()) {
-          // If range complete and not explicit close, prevent auto-close
-          if (selectedDates.length === 2 && !instance._explicitClose) {
+          // If range complete and not explicit/outside close, prevent auto-close
+          if (selectedDates.length === 2 && !instance._explicitClose && !instance._outsideClose) {
             instance.open();
             return;
           }
           instance._explicitClose = false;
+          instance._outsideClose = false;
           document.body.style.overflow = '';
           restoreControlsFromCalendar();
         }
@@ -647,6 +648,17 @@
       },
       onChange: function (selectedDates) {
         handleDateSelection(selectedDates);
+      }
+    });
+
+    // Close mobile calendar when tapping outside
+    document.addEventListener('click', function (e) {
+      if (!fpInstance || !fpInstance.isOpen || isDesktop()) return;
+      var cal = fpInstance.calendarContainer;
+      var widget = document.getElementById('bookingWidget');
+      if (cal && !cal.contains(e.target) && (!widget || !widget.contains(e.target))) {
+        fpInstance._outsideClose = true;
+        fpInstance.close();
       }
     });
 
