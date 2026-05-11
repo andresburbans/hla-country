@@ -30,7 +30,7 @@
       nav_rooms: 'Habitaciones',
       nav_popayan: 'Popayán',
       nav_location: 'Ubicación',
-      hero_eyebrow: 'Popayán · Cauca · Colombia',
+      hero_eyebrow: 'HOTEL',
       hero_tagline_full: 'Confort, tranquilidad y la mejor ubicación para descubrir la <em>Ciudad Blanca</em> de Colombia.',
       hero_subtitle: 'Confort, tranquilidad y la mejor ubicación para descubrir la Ciudad Blanca de Colombia.',
       hero_btn: 'Descubrir habitaciones',
@@ -53,28 +53,34 @@
       reservation_details: 'Detalles de reserva',
       view_rooms: 'Reservar ahora',
       about_eyebrow: 'Bienvenidos',
-      about_title: 'Un lugar pensado para su comodidad',
-      about_desc_1: 'Hotel Los Angeles Country le ofrece 6 habitaciones confortables, cada una con baño privado y la mejor atención personalizada. Nuestro hotel semifamiliar es ideal para estadías cortas, pasadías o alojamiento mientras visita los centros médicos cercanos.',
-      about_desc_2: 'Ubicados en la Carrera 6 #16N-30, estamos a pocos minutos del centro histórico de Popayán, la Galería Bolívar, y los principales centros hospitalarios de la ciudad.',
+      about_title: 'Un lugar pensado para su descanso',
+      about_desc_1: 'El Hotel Los Angeles Country es su mejor opción en Popayán. Ofrecemos habitaciones privadas con cama doble, baño con ducha, televisor y WiFi. Ubicados a pasos del centro histórico y los principales centros hospitalarios de la ciudad, ideal para estadías cortas o visitas médicas.',
+      about_desc_2: 'Nuestro equipo lo atiende con calidez las 24 horas del día. Ambiente seguro, tranquilo y libre de humo.',
+      amenity_bed: 'Cama doble',
+      amenity_shower: 'Baño con ducha',
+      amenity_tv: 'Televisor',
+      amenity_wifi: 'WiFi disponible',
+      amenity_nosmoke: 'No fumar',
+      amenity_24h: 'Recepción 24 horas',
       feat_rooms: '6 Habitaciones privadas',
       feat_hospitals: 'Cerca a hospitales',
       feat_service: 'Excelente atención',
       feat_location: 'Ubicación céntrica',
       rooms_eyebrow: 'Alojamiento',
       rooms_title: 'Nuestras Habitaciones',
-      rooms_subtitle: 'Contamos con habitaciones individuales o para parejas, limpias y confortables con baño privado, pensadas para su descanso y bienestar. Todas las habitaciones cuentan con baño privado, TV, y Wi-Fi.',
-      room_desc_ind: '1 persona · Privada · TV · Wi-Fi',
+      rooms_subtitle: 'Habitaciones individuales y dobles, diseñadas para un descanso reparador. Precios accesibles desde $50.000 COP por noche.',
+      room_desc_ind: '1 persona · Cama sencilla · Privada',
       room_private_bath: 'Baño Privado',
-      room_desc_bath: 'Incluido en todas las habitaciones',
-      room_desc_doble: '2 personas · Privada · TV · Wi-Fi',
-      facilities: 'Instalaciones',
-      facilities_desc: 'Ambiente seguro y tranquilo',
-      room_comfort_title: 'Habitación Doble',
-      room_comfort_desc: 'Confort garantizado',
+      room_desc_bath: 'Ducha con agua caliente',
+      room_desc_doble: '2 personas · Cama doble · Ideal parejas',
+      facilities: 'Nuestras Instalaciones',
+      facilities_desc: 'Espacios limpios, seguros y acogedores',
+      room_comfort_title: 'Tu Hogar en Popayán',
+      room_comfort_desc: 'Comodidad y tranquilidad garantizadas',
       loc_eyebrow: 'Ubicación privilegiada',
       loc_title: 'En el corazón de Popayán',
       loc_text: 'Nos encontramos en la Carrera 6 #16N-30, una ubicación estratégica que le permite acceder fácilmente al centro histórico, centros hospitalarios y sitios de interés cultural de la Ciudad Blanca.',
-      open_maps: 'Abrir en Google Maps',
+      open_maps: 'Llevame al hotel',
       pop_eyebrow: 'La Ciudad Blanca',
       pop_title: 'Descubra Popayán',
       pop_desc: 'Patrimonio histórico de Colombia, Popayán enamora con su arquitectura colonial, su gastronomía y su rica tradición cultural. Desde nuestro hotel, todo está al alcance.',
@@ -99,18 +105,18 @@
       cta_title: '¿Listo para su estadía en Popayán?',
       cta_text: 'Contáctenos directamente y reserve su habitación hoy mismo.',
       cta_call: 'Llamar: 302 302 2707',
-      footer_brand_desc: 'Alojamiento confortable en el corazón de Popayán. 6 habitaciones con baño privado, excelente atención y la mejor ubicación.',
+      footer_brand_desc: 'Alojamiento confortable en el corazón de Popayán. Habitaciones con baño privado, excelente atención y la mejor ubicación.',
       footer_contact: 'Contacto',
       footer_links: 'Enlaces',
       footer_copy: '© 2026 Hotel Los Angeles Country. Todos los derechos reservados.',
       modal_title: 'Resumen de Reserva',
-      modal_subtitle: 'Confirme los detalles y reserve por WhatsApp',
+      modal_subtitle: 'Revise los detalles de su reserva',
       modal_checkin: 'Check-in',
       modal_checkout: 'Check-out',
       modal_nights: 'Noches',
       modal_price_note: 'Precio / hab / noche',
       modal_btn: 'Reservar por WhatsApp',
-      modal_note: 'Será redirigido a WhatsApp para confirmar su reserva.',
+      modal_note: 'Se abrirá para confirmar disponibilidad.',
       lang_label: 'Idioma',
       night_singular: 'noche',
       night_plural: 'noches',
@@ -129,7 +135,7 @@
       nav_rooms: 'Rooms',
       nav_popayan: 'Popayán',
       nav_location: 'Location',
-      hero_eyebrow: 'Popayán · Cauca · Colombia',
+      hero_eyebrow: 'HOTEL',
       hero_tagline_full: 'Comfort, tranquility and the best location to discover the <em>White City</em> of Colombia.',
       hero_subtitle: 'Comfort, tranquility and the best location to discover the White City of Colombia.',
       hero_btn: 'Discover rooms',
@@ -152,28 +158,34 @@
       reservation_details: 'Reservation details',
       view_rooms: 'Book Now',
       about_eyebrow: 'Welcome',
-      about_title: 'A place designed for your comfort',
-      about_desc_1: 'Hotel Los Angeles Country offers 6 comfortable rooms, each with private bathroom and excellent personalized attention. Our semi-family hotel is ideal for short stays or accommodation while visiting nearby medical centers.',
-      about_desc_2: 'Located at Carrera 6 #16N-30, we are just minutes from Popayan\'s historic center, Bolivar Market, and the city\'s main hospital centers.',
+      about_title: 'A place designed for your rest',
+      about_desc_1: 'Hotel Los Angeles Country is your best choice in Popayán. We offer private rooms with double bed, shower, TV and WiFi. Steps from the historic center and the city\'s main hospitals, ideal for short stays or medical visits.',
+      about_desc_2: 'Our team welcomes you warmly 24 hours a day. Safe, quiet and smoke-free environment.',
+      amenity_bed: 'Double bed',
+      amenity_shower: 'Bathroom with shower',
+      amenity_tv: 'Television',
+      amenity_wifi: 'WiFi available',
+      amenity_nosmoke: 'No smoking',
+      amenity_24h: '24-hour reception',
       feat_rooms: '6 Private rooms',
       feat_hospitals: 'Near hospitals',
       feat_service: 'Excellent service',
       feat_location: 'Central location',
       rooms_eyebrow: 'Accommodation',
       rooms_title: 'Our Rooms',
-      rooms_subtitle: 'We have single or couple rooms, clean and comfortable with private bathroom, designed for your rest and wellbeing. All rooms include private bathroom, TV, and Wi-Fi.',
-      room_desc_ind: '1 person · Private · TV · Wi-Fi',
+      rooms_subtitle: 'Single and double rooms, designed for a restful stay. Affordable prices from $50,000 COP per night.',
+      room_desc_ind: '1 person · Single bed · Private',
       room_private_bath: 'Private Bathroom',
-      room_desc_bath: 'Included in all rooms',
-      room_desc_doble: '2 people · Private · TV · Wi-Fi',
-      facilities: 'Facilities',
-      facilities_desc: 'Safe and peaceful environment',
-      room_comfort_title: 'Double Room',
-      room_comfort_desc: 'Guaranteed Comfort',
+      room_desc_bath: 'Hot water shower',
+      room_desc_doble: '2 people · Double bed · Ideal for couples',
+      facilities: 'Our Facilities',
+      facilities_desc: 'Clean, safe and cozy spaces',
+      room_comfort_title: 'Your Home in Popayán',
+      room_comfort_desc: 'Comfort and tranquility guaranteed',
       loc_eyebrow: 'Prime Location',
       loc_title: 'In the heart of Popayán',
       loc_text: 'Located at Carrera 6 #16N-30, a strategic location that allows easy access to the historic center, hospital centers and cultural interest sites of the White City.',
-      open_maps: 'Open in Google Maps',
+      open_maps: 'Take me to the hotel',
       pop_eyebrow: 'The White City',
       pop_title: 'Discover Popayán',
       pop_desc: 'Colombia\'s historical heritage, Popayán enchants with its colonial architecture, gastronomy, and rich cultural tradition. From our hotel, everything is within reach.',
@@ -198,18 +210,18 @@
       cta_title: 'Ready for your stay in Popayán?',
       cta_text: 'Contact us directly and book your room today.',
       cta_call: 'Call: 302 302 2707',
-      footer_brand_desc: 'Comfortable accommodation in the heart of Popayán. 6 private rooms, excellent personalized attention and the best location.',
+      footer_brand_desc: 'Comfortable accommodation in the heart of Popayán. Private rooms, excellent service and the best location.',
       footer_contact: 'Contact',
       footer_links: 'Links',
       footer_copy: '© 2026 Hotel Los Angeles Country. All rights reserved.',
       modal_title: 'Booking Summary',
-      modal_subtitle: 'Confirm details and book via WhatsApp',
+      modal_subtitle: 'Review your booking details',
       modal_checkin: 'Check-in',
       modal_checkout: 'Check-out',
       modal_nights: 'Nights',
       modal_price_note: 'Price / room / night',
       modal_btn: 'Book via WhatsApp',
-      modal_note: 'You will be redirected to WhatsApp to confirm your booking.',
+      modal_note: 'Opens to confirm availability.',
       lang_label: 'Language',
       night_singular: 'night',
       night_plural: 'nights',
@@ -630,13 +642,6 @@
       },
       onClose: function (selectedDates, dateStr, instance) {
         if (!isDesktop()) {
-          // If range complete and not explicit/outside close, prevent auto-close
-          if (selectedDates.length === 2 && !instance._explicitClose && !instance._outsideClose) {
-            instance.open();
-            return;
-          }
-          instance._explicitClose = false;
-          instance._outsideClose = false;
           document.body.style.overflow = '';
           restoreControlsFromCalendar();
         }
@@ -650,6 +655,26 @@
         handleDateSelection(selectedDates);
       }
     });
+
+    // Override close() on mobile to prevent auto-close after range selection
+    // Eliminates flicker from close-reopen pattern
+    if (!isDesktop()) {
+      var _origClose = fpInstance.close.bind(fpInstance);
+      fpInstance.close = function () {
+        // Allow explicit close (button or outside tap)
+        if (fpInstance._explicitClose || fpInstance._outsideClose) {
+          fpInstance._explicitClose = false;
+          fpInstance._outsideClose = false;
+          _origClose();
+          return;
+        }
+        // Block auto-close when range is complete
+        if (fpInstance.selectedDates && fpInstance.selectedDates.length === 2) {
+          return;
+        }
+        _origClose();
+      };
+    }
 
     // Close mobile calendar when tapping outside
     document.addEventListener('click', function (e) {
@@ -830,7 +855,7 @@
       var target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        if (typeof prefersReducedMotion !== 'undefined' && prefersReducedMotion) {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
           target.scrollIntoView();
         } else {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
