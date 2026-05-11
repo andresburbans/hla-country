@@ -864,4 +864,30 @@
     });
   });
 
+  /* ── Final CTA Button: Scroll to Top & Open Picker ── */
+  var ctaFinalBtn = document.getElementById('ctaFinalBookBtn');
+  if (ctaFinalBtn) {
+    ctaFinalBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var hero = document.getElementById('hero');
+      if (hero) {
+        // Smooth scroll
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          hero.scrollIntoView();
+        } else {
+          hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // Trigger relevant picker behavior
+        setTimeout(function () {
+          if (!isDesktop()) {
+            if (fpInstance) fpInstance.open();
+          } else {
+            var calBox = document.getElementById('calendarBox');
+            if (calBox) calBox.classList.add('active');
+          }
+        }, 500); // Slight delay to allow scroll start
+      }
+    });
+  }
+
 })();
