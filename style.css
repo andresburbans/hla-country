@@ -235,7 +235,7 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 0.68rem;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -255,7 +255,7 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
 }
 
 .nav-lang-sep {
-  font-size: 0.65rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.3);
 }
 
@@ -877,7 +877,8 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
   padding: 0 2rem 2rem 2rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  justify-content: flex-start; /* default for scrolling overflow */
+  justify-content: flex-start;
+  /* default for scrolling overflow */
 }
 
 .rooms-carousel::-webkit-scrollbar {
@@ -908,12 +909,14 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
   .rooms-carousel {
     padding-left: 2rem;
     padding-right: 2rem;
-    justify-content: center; /* centered as requested */
+    justify-content: center;
+    /* centered as requested */
     scroll-snap-type: none;
   }
 
   .carousel-item {
-    flex: 0 0 280px; /* slightly smaller for more aesthetic balance like screenshot */
+    flex: 0 0 280px;
+    /* slightly smaller for more aesthetic balance like screenshot */
     scroll-snap-align: none;
   }
 }
@@ -932,11 +935,13 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
 .carousel-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(6, 34, 107, 0.9) 0%, transparent 35%); /* shorter cleaner fade like pic */
+  background: linear-gradient(to top, rgba(6, 34, 107, 0.9) 0%, transparent 35%);
+  /* shorter cleaner fade like pic */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1.5rem 1.25rem; /* reduced padding like pic */
+  padding: 1.5rem 1.25rem;
+  /* reduced padding like pic */
   transition: background 0.4s ease;
 }
 
@@ -947,19 +952,22 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
 .carousel-meta {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem; /* tighter gap like picture */
+  gap: 0.25rem;
+  /* tighter gap like picture */
 }
 
 .carousel-title {
   font-family: var(--font-display);
-  font-size: 1.25rem; /* smaller elegant serif size matching user attachment */
+  font-size: 1.25rem;
+  /* smaller elegant serif size matching user attachment */
   color: var(--white);
   line-height: 1.2;
   margin: 0;
 }
 
 .carousel-desc {
-  font-size: 0.75rem; /* tiny description matching reference */
+  font-size: 0.75rem;
+  /* tiny description matching reference */
   color: rgba(255, 255, 255, 0.75);
   font-weight: 300;
   line-height: 1.4;
@@ -1734,8 +1742,8 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
   }
 
   /* Hide selectors in normal widget flow on mobile, as they now live in the modal */
-  #bookingWidget > .lux-extras-row,
-  #bookingWidget > .booking-price-estimate {
+  #bookingWidget>.lux-extras-row,
+  #bookingWidget>.booking-price-estimate {
     display: none !important;
   }
 
@@ -1995,25 +2003,39 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
   gap: 2px;
 }
 
-/* Rounded active day selection */
+/* Rounded active day selection - Ensure continuous physical connection */
 .flatpickr-day.selected,
 .flatpickr-day.startRange,
 .flatpickr-day.endRange {
   background: var(--blue) !important;
   border-color: var(--blue) !important;
-  border-radius: 50% !important;
   color: #fff !important;
-  transform: scale(0.95);
+  transform: none !important;
+}
+
+.flatpickr-day.startRange {
+  border-radius: 50px 0 0 50px !important;
+}
+
+.flatpickr-day.endRange {
+  border-radius: 0 50px 50px 0 !important;
+}
+
+.flatpickr-day.startRange.endRange,
+.flatpickr-day.selected.startRange.endRange {
+  border-radius: 50% !important;
+  /* Fallback for single-day selection */
 }
 
 .flatpickr-day.inRange {
-  background: rgba(6, 34, 107, 0.08) !important;
-  box-shadow: -5px 0 0 rgba(6, 34, 107, 0.08), 5px 0 0 rgba(6, 34, 107, 0.08) !important;
+  background: rgba(6, 34, 107, 0.14) !important;
+  /* Rich continuous blue fill */
+  box-shadow: -5px 0 0 rgba(6, 34, 107, 0.14), 5px 0 0 rgba(6, 34, 107, 0.14) !important;
   border-radius: 0 !important;
+  color: var(--blue) !important;
 }
 
-/* Keep fully rounded selection at range edges */
-.flatpickr-day.startRange.hasTime,
-.flatpickr-day.endRange.hasTime {
-  border-radius: 50% !important;
+/* Force persistence on hover */
+.flatpickr-day.inRange:hover {
+  background: rgba(6, 34, 107, 0.2) !important;
 }
