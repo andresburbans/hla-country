@@ -124,7 +124,7 @@
       guest_plural: 'personas',
       room_singular: 'habitación',
       room_plural: 'habitaciones',
-      price_per_room_night: '/ hab / noche'
+      price_per_room_night: ' COP'
     },
     en: {
       skip: 'Skip to main content',
@@ -219,7 +219,7 @@
       modal_checkin: 'Check-in',
       modal_checkout: 'Check-out',
       modal_nights: 'Nights',
-      modal_price_note: 'Price / room / night',
+      modal_price_note: 'Price (room/night)',
       modal_btn: 'Book via WhatsApp',
       modal_note: 'Opens to confirm availability.',
       lang_label: 'Language',
@@ -229,7 +229,7 @@
       guest_plural: 'guests',
       room_singular: 'room',
       room_plural: 'rooms',
-      price_per_room_night: '/ room / night'
+      price_per_room_night: ''
     }
   };
 
@@ -776,23 +776,23 @@
 
     var isEn = currentLang === 'en';
     var msg = isEn ?
-      'Hello! I\'d like to book a room at *Hotel Los Angeles Country* . 🛏️' + '\n\n' +
+      'Hello! I\'d like to book a room at *Hotel Los Angeles Country*.' + '\n\n' +
       '*Arrival:* ' + formatDateLocalized(ci) + '\n' +
       '*Departure:* ' + formatDateLocalized(co) + '\n' +
       '*' + nights + '* ' + (nights === 1 ? 'night' : 'nights') + ' · ' +
       '*' + guests + '* ' + (guests === 1 ? 'guest' : 'guests') + ' · ' +
       '*' + rooms + '* ' + (rooms === 1 ? 'room' : 'rooms') + '\n' +
       '*Estimated total:* ' + formatCOP(total) + '\n\n' +
-      'Is there availability? Thank you! ☺️'
+      'Is there availability? Thank you!'
       :
-      '¡Hola! Quiero reservar una habitación en el *Hotel Los Angeles Country* . 🛏️' + '\n\n' +
+      '¡Hola! Quiero reservar una habitación en el *Hotel Los Angeles Country*.' + '\n\n' +
       '*Llegada:* ' + formatDateLocalized(ci) + '\n' +
       '*Salida:* ' + formatDateLocalized(co) + '\n' +
       '*' + nights + '* ' + (nights === 1 ? 'noche' : 'noches') + ' · ' +
       '*' + guests + '* ' + (guests === 1 ? 'huésped' : 'huéspedes') + ' · ' +
       '*' + rooms + '* ' + (rooms === 1 ? 'habitación' : 'habitaciones') + '\n' +
       '*Total estimado:* ' + formatCOP(total) + '\n\n' +
-      '¿Hay disponibilidad? ¡Gracias! ☺️';
+      '¿Hay disponibilidad? ¡Gracias!';
 
     var waBtn = document.getElementById('modalWaBtn');
     if (waBtn) waBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
