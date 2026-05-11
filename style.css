@@ -834,10 +834,14 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 1.5rem 1rem;
-  border-bottom: 1px solid rgba(6, 34, 107, 0.1);
-  border-right: 1px solid rgba(6, 34, 107, 0.1);
-  transition: background 0.3s ease;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid rgba(6, 34, 107, 0.08);
+  border-right: 1px solid rgba(6, 34, 107, 0.08);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-amenity:hover {
+  background: rgba(6, 34, 107, 0.02);
 }
 
 .about-amenity:nth-child(3n) {
@@ -849,11 +853,18 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
 }
 
 .about-amenity-icon {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   color: var(--blue);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
   flex-shrink: 0;
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.about-amenity:hover .about-amenity-icon {
+  transform: translateY(-3px);
+  opacity: 1;
 }
 
 .about-amenity-text {
