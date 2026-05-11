@@ -255,7 +255,7 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
 }
 
 .nav-lang-sep {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.3);
 }
 
@@ -1931,14 +1931,14 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
     width: 100%;
     padding: 0.85rem;
     margin-top: 1rem;
-    background: var(--blue);
+    background: var(--gold);
     color: white;
     border-radius: 6px;
     font-weight: 600;
     font-size: 0.85rem;
     letter-spacing: 0.05em;
-    box-shadow: 0 4px 12px rgba(6, 34, 107, 0.2);
-    transition: transform 0.2s;
+    box-shadow: 0 4px 12px rgba(201, 169, 110, 0.3);
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .fp-apply-btn:active {

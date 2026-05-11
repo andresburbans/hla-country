@@ -31,7 +31,7 @@
       nav_popayan: 'Popayán',
       nav_location: 'Ubicación',
       hero_eyebrow: 'Popayán · Cauca · Colombia',
-      hero_tagline_full: 'Su refugio en el corazón de <em>Popayán</em>',
+      hero_tagline_full: 'Confort, tranquilidad y la mejor ubicación para descubrir la <em>Ciudad Blanca</em> de Colombia.',
       hero_subtitle: 'Confort, tranquilidad y la mejor ubicación para descubrir la Ciudad Blanca de Colombia.',
       hero_btn: 'Descubrir habitaciones',
       discover: 'Descubrir',
@@ -130,7 +130,7 @@
       nav_popayan: 'Popayán',
       nav_location: 'Location',
       hero_eyebrow: 'Popayán · Cauca · Colombia',
-      hero_tagline_full: 'Your retreat in the heart of <em>Popayán</em>',
+      hero_tagline_full: 'Comfort, tranquility and the best location to discover the <em>White City</em> of Colombia.',
       hero_subtitle: 'Comfort, tranquility and the best location to discover the White City of Colombia.',
       hero_btn: 'Discover rooms',
       discover: 'Discover',
@@ -574,17 +574,23 @@
       var rRow = document.getElementById('roomRow');
       var pEst = document.getElementById('priceEstimate');
       
-      // Create Confirm button if it doesn't exist yet
+      // Create Confirm button (now "Reserve Now" on mobile) if it doesn't exist yet
       var applyBtn = footer.querySelector('.fp-apply-btn');
       if (!applyBtn) {
         applyBtn = document.createElement('button');
         applyBtn.type = 'button';
         applyBtn.className = 'fp-apply-btn';
-        applyBtn.textContent = (currentLang === 'es') ? 'Confirmar' : 'Confirm';
+        applyBtn.textContent = TRANSLATIONS[currentLang].view_rooms || 'Reservar ahora';
         applyBtn.addEventListener('click', function(e) {
           e.stopPropagation();
-          instance.close();
+          instance.close(); // close calendar modal first
+          if (typeof openBookingModal === 'function') {
+            openBookingModal(); // directly trigger the summary popup
+          }
         });
+      } else {
+        // Ensure text is updated if language changes
+        applyBtn.textContent = TRANSLATIONS[currentLang].view_rooms || 'Reservar ahora';
       }
       
       // Always append in correct order: controls first, then button last
@@ -694,62 +700,68 @@
     return d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
   }
 
-  if (viewBtn && modal) {
-    viewBtn.addEventListener('click', function (e) {
-      e.preventDefault();
-      var ci = checkinInput ? checkinInput.value : '';
-      var co = checkoutInput ? checkoutInput.value : '';
-      if (!ci || !co) return;
+  /* ── Open Booking Summary Modal logic ── */
+  window.openBookingModal = function(e) {
+    if (e && typeof e.preventDefault === 'function') e.preventDefault();
+    
+    var ci = checkinInput ? checkinInput.value : '';
+    var co = checkoutInput ? checkoutInput.value : '';
+    if (!ci || !co) return;
 
-      var t = TRANSLATIONS[currentLang];
-      var nights = calcNights(ci, co);
-      var breakdown = calcPriceBreakdown(guests, rooms);
-      var totalPerNight = breakdown.totalPerNight;
-      var total = totalPerNight * nights;
+    var t = TRANSLATIONS[currentLang];
+    var nights = calcNights(ci, co);
+    var breakdown = calcPriceBreakdown(guests, rooms);
+    var totalPerNight = breakdown.totalPerNight;
+    var total = totalPerNight * nights;
 
-      var elCheckin = document.getElementById('modalCheckin');
-      var elCheckout = document.getElementById('modalCheckout');
-      var elNights = document.getElementById('modalNights');
-      var elGuests = document.getElementById('modalGuests');
-      var elRooms = document.getElementById('modalRooms');
-      var elPriceNight = document.getElementById('modalPriceNight');
-      var elTotal = document.getElementById('modalTotal');
+    var elCheckin = document.getElementById('modalCheckin');
+    var elCheckout = document.getElementById('modalCheckout');
+    var elNights = document.getElementById('modalNights');
+    var elGuests = document.getElementById('modalGuests');
+    var elRooms = document.getElementById('modalRooms');
+    var elPriceNight = document.getElementById('modalPriceNight');
+    var elTotal = document.getElementById('modalTotal');
 
-      if (elCheckin) elCheckin.textContent = formatDateLocalized(ci);
-      if (elCheckout) elCheckout.textContent = formatDateLocalized(co);
-      if (elNights) elNights.textContent = nights + ' ' + (nights === 1 ? t.night_singular : t.night_plural);
-      if (elGuests) elGuests.textContent = guests + ' ' + (guests === 1 ? t.guest_singular : t.guest_plural);
-      if (elRooms) elRooms.textContent = rooms + ' ' + (rooms === 1 ? t.room_singular : t.room_plural);
-      if (elPriceNight) elPriceNight.textContent = formatCOP(totalPerNight) + ' ' + t.price_per_room_night;
-      if (elTotal) elTotal.textContent = formatCOP(total);
+    if (elCheckin) elCheckin.textContent = formatDateLocalized(ci);
+    if (elCheckout) elCheckout.textContent = formatDateLocalized(co);
+    if (elNights) elNights.textContent = nights + ' ' + (nights === 1 ? t.night_singular : t.night_plural);
+    if (elGuests) elGuests.textContent = guests + ' ' + (guests === 1 ? t.guest_singular : t.guest_plural);
+    if (elRooms) elRooms.textContent = rooms + ' ' + (rooms === 1 ? t.room_singular : t.room_plural);
+    if (elPriceNight) elPriceNight.textContent = formatCOP(totalPerNight) + ' ' + t.price_per_room_night;
+    if (elTotal) elTotal.textContent = formatCOP(total);
 
-      var isEn = currentLang === 'en';
-      var msg = isEn ?
-        'Hello, I would like to book at Hotel Los Angeles Country:\n' +
-        '*Check-in:* ' + formatDateLocalized(ci) + '\n' +
-        '*Check-out:* ' + formatDateLocalized(co) + '\n' +
-        '*Nights:* ' + nights + '\n' +
-        '*Guests:* ' + guests + '\n' +
-        '*Rooms:* ' + rooms + '\n' +
-        '*Estimated Total:* ' + formatCOP(total) + '\n' +
-        'Is availability confirmed?'
-        :
-        'Hola, quiero reservar en Hotel Los Angeles Country:\n' +
-        '*Check-in:* ' + formatDateLocalized(ci) + '\n' +
-        '*Check-out:* ' + formatDateLocalized(co) + '\n' +
-        '*Noches:* ' + nights + '\n' +
-        '*Huéspedes:* ' + guests + '\n' +
-        '*Habitaciones:* ' + rooms + '\n' +
-        '*Total estimado:* ' + formatCOP(total) + '\n' +
-        '¿Hay disponibilidad?';
+    var isEn = currentLang === 'en';
+    var msg = isEn ?
+      'Hello, I would like to book at Hotel Los Angeles Country:\n' +
+      '*Check-in:* ' + formatDateLocalized(ci) + '\n' +
+      '*Check-out:* ' + formatDateLocalized(co) + '\n' +
+      '*Nights:* ' + nights + '\n' +
+      '*Guests:* ' + guests + '\n' +
+      '*Rooms:* ' + rooms + '\n' +
+      '*Estimated Total:* ' + formatCOP(total) + '\n' +
+      'Is availability confirmed?'
+      :
+      'Hola, quiero reservar en Hotel Los Angeles Country:\n' +
+      '*Check-in:* ' + formatDateLocalized(ci) + '\n' +
+      '*Check-out:* ' + formatDateLocalized(co) + '\n' +
+      '*Noches:* ' + nights + '\n' +
+      '*Huéspedes:* ' + guests + '\n' +
+      '*Habitaciones:* ' + rooms + '\n' +
+      '*Total estimado:* ' + formatCOP(total) + '\n' +
+      '¿Hay disponibilidad?';
 
-      var waBtn = document.getElementById('modalWaBtn');
-      if (waBtn) waBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+    var waBtn = document.getElementById('modalWaBtn');
+    if (waBtn) waBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
 
+    if (modal) {
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
       trapFocus(modal);
-    });
+    }
+  };
+
+  if (viewBtn && modal) {
+    viewBtn.addEventListener('click', window.openBookingModal);
   }
 
   /* ── Close modal ── */
