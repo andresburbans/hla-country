@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hotellosangelescountry.pages.dev/sitemap.xml
