@@ -483,12 +483,7 @@
       var rRow = document.getElementById('roomRow');
       var pEst = document.getElementById('priceEstimate');
       
-      // Move elements if they exist
-      if (gRow) footer.appendChild(gRow);
-      if (rRow) footer.appendChild(rRow);
-      if (pEst) footer.appendChild(pEst);
-      
-      // Create or reuse Confirm button
+      // Create Confirm button if it doesn't exist yet
       var applyBtn = footer.querySelector('.fp-apply-btn');
       if (!applyBtn) {
         applyBtn = document.createElement('button');
@@ -499,8 +494,13 @@
           e.stopPropagation();
           instance.close();
         });
-        footer.appendChild(applyBtn);
       }
+      
+      // Always append in correct order: controls first, then button last
+      if (gRow) footer.appendChild(gRow);
+      if (rRow) footer.appendChild(rRow);
+      if (pEst) footer.appendChild(pEst);
+      footer.appendChild(applyBtn);
     }
 
     function restoreControlsFromCalendar() {
