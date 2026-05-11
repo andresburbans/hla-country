@@ -36,7 +36,7 @@
   <!-- Flatpickr -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='15' y='40' width='70' height='55' fill='%2306226B' rx='2'/><polygon points='8,45 50,10 92,45' fill='%2306226B'/><rect x='38' y='68' width='24' height='27' fill='%23c9a96e' rx='2'/></svg>">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -306,8 +306,7 @@
         <h2 class="section-title" data-i18n="rooms_title">Nuestras Habitaciones</h2>
         <p class="section-text" data-i18n="rooms_subtitle">
           Contamos con habitaciones individuales o para parejas, limpias y confortables con baño privado, pensadas para
-          su descanso y bienestar. Todas las habitaciones cuentan con baño privado, TV, y Wi-Fi. Solo tenemos
-          habitaciones para individual o pareja.
+          su descanso y bienestar. Todas las habitaciones cuentan con baño privado, TV, y Wi-Fi.
         </p>
       </div>
     </div>
@@ -320,7 +319,7 @@
           <div class="carousel-overlay">
             <div class="carousel-meta">
               <h3 class="carousel-title" data-i18n="room_individual">Habitación Individual</h3>
-              <p class="carousel-desc">1 persona · Privada · TV · Wi-Fi</p>
+              <p class="carousel-desc" data-i18n="room_desc_ind">1 persona · Privada · TV · Wi-Fi</p>
             </div>
           </div>
         </div>
@@ -329,8 +328,8 @@
           <img src="images/baño.jpg" alt="Baño Privado" loading="lazy">
           <div class="carousel-overlay">
             <div class="carousel-meta">
-              <h3 class="carousel-title">Baño Privado</h3>
-              <p class="carousel-desc">Incluido en todas las habitaciones</p>
+              <h3 class="carousel-title" data-i18n="room_private_bath">Baño Privado</h3>
+              <p class="carousel-desc" data-i18n="room_desc_bath">Incluido en todas las habitaciones</p>
             </div>
           </div>
         </div>
@@ -340,7 +339,7 @@
           <div class="carousel-overlay">
             <div class="carousel-meta">
               <h3 class="carousel-title" data-i18n="room_doble">Habitación Doble</h3>
-              <p class="carousel-desc">2 personas · Privada · TV · Wi-Fi</p>
+              <p class="carousel-desc" data-i18n="room_desc_doble">2 personas · Privada · TV · Wi-Fi</p>
             </div>
           </div>
         </div>
@@ -349,8 +348,8 @@
           <img src="images/pasillo.jpg" alt="Pasillo" loading="lazy">
           <div class="carousel-overlay">
             <div class="carousel-meta">
-              <h3 class="carousel-title">Instalaciones</h3>
-              <p class="carousel-desc">Ambiente seguro y tranquilo</p>
+              <h3 class="carousel-title" data-i18n="facilities">Instalaciones</h3>
+              <p class="carousel-desc" data-i18n="facilities_desc">Ambiente seguro y tranquilo</p>
             </div>
           </div>
         </div>
@@ -359,8 +358,8 @@
           <img src="images/habitacion3.jpg" alt="Habitación" loading="lazy">
           <div class="carousel-overlay">
             <div class="carousel-meta">
-              <h3 class="carousel-title">Habitación Doble</h3>
-              <p class="carousel-desc">Confort garantizado</p>
+              <h3 class="carousel-title" data-i18n="room_comfort_title">Habitación Doble</h3>
+              <p class="carousel-desc" data-i18n="room_comfort_desc">Confort garantizado</p>
             </div>
           </div>
         </div>
@@ -373,9 +372,9 @@
     <div class="section-container">
       <div class="location-grid">
         <div class="reveal">
-          <p class="section-eyebrow">Ubicación privilegiada</p>
-          <h2 class="section-title" style="color: var(--white);">En el corazón de Popayán</h2>
-          <p class="location-text">
+          <p class="section-eyebrow" data-i18n="loc_eyebrow">Ubicación privilegiada</p>
+          <h2 class="section-title" style="color: var(--white);" data-i18n="loc_title">En el corazón de Popayán</h2>
+          <p class="location-text" data-i18n="loc_text">
             Nos encontramos en la Carrera 6 #16N-30, una ubicación estratégica que le permite acceder fácilmente al
             centro histórico, centros hospitalarios y sitios de interés cultural de la Ciudad Blanca.
           </p>
@@ -418,7 +417,7 @@
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            Abrir en Google Maps
+            <span data-i18n="open_maps">Abrir en Google Maps</span>
           </a>
         </div>
       </div>
@@ -430,9 +429,9 @@
   <section class="section popayan-story" id="popayan">
     <div class="section-container">
       <div style="text-align: center;" class="reveal">
-        <p class="section-eyebrow">La Ciudad Blanca</p>
-        <h2 class="section-title">Descubra Popayán</h2>
-        <p class="section-text" style="margin: 0 auto;">
+        <p class="section-eyebrow" data-i18n="pop_eyebrow">La Ciudad Blanca</p>
+        <h2 class="section-title" data-i18n="pop_title">Descubra Popayán</h2>
+        <p class="section-text" style="margin: 0 auto;" data-i18n="pop_desc">
           Patrimonio histórico de Colombia, Popayán enamora con su arquitectura colonial, su gastronomía y su rica
           tradición cultural. Desde nuestro hotel, todo está al alcance.
         </p>
@@ -452,11 +451,11 @@
                 <path d="M6 21V7l6-4 6 4v14" />
                 <path d="M10 21v-6h4v6" />
               </svg></div>
-            <h3 class="story-card-title">Centro Histórico</h3>
-            <p class="story-card-text">Recorra las calles empedradas y admire la arquitectura colonial blanca que le dio
-              su nombre a la ciudad. Iglesias centenarias, El emblematico puente colonial del Humilladero, plazas y
+            <h3 class="story-card-title" data-i18n="card_1_title">Centro Histórico</h3>
+            <p class="story-card-text" data-i18n="card_1_text">Recorra las calles empedradas y admire la arquitectura colonial blanca que le dio
+              su nombre a la ciudad. Iglesias centenarias, el emblematico puente colonial del Humilladero, plazas y
               museos a minutos del hotel.</p>
-            <span class="story-card-dist">~1.5 km del hotel</span>
+            <span class="story-card-dist" data-i18n="card_1_dist">~1.5 km del hotel</span>
           </div>
         </div>
 
@@ -472,10 +471,10 @@
                 <path d="M2 20l10-16 10 16" />
                 <path d="M6 20l6-10 6 10" />
               </svg></div>
-            <h3 class="story-card-title">Morro de Tulcán</h3>
-            <p class="story-card-text">Pirámide precolombina con vista panorámica de toda la ciudad. Un sitio
+            <h3 class="story-card-title" data-i18n="card_2_title">Morro de Tulcán</h3>
+            <p class="story-card-text" data-i18n="card_2_text">Pirámide precolombina con vista panorámica de toda la ciudad. Un sitio
               arqueológico único donde la historia prehispánica del Cauca cobra vida.</p>
-            <span class="story-card-dist">~800 m del hotel</span>
+            <span class="story-card-dist" data-i18n="card_2_dist">~800 m del hotel</span>
           </div>
         </div>
 
@@ -492,10 +491,10 @@
                 <path d="M3 6h18" />
                 <path d="M16 10a4 4 0 0 1-8 0" />
               </svg></div>
-            <h3 class="story-card-title">Galería Bolívar</h3>
-            <p class="story-card-text">El mercado más emblemático de Popayán. Frutas exóticas, empanadas de pipián,
+            <h3 class="story-card-title" data-i18n="card_3_title">Galería Bolívar</h3>
+            <p class="story-card-text" data-i18n="card_3_text">El mercado más emblemático de Popayán. Frutas exóticas, empanadas de pipián,
               tamales de guiso y los sabores auténticos del Cauca, a pasos de nuestra puerta.</p>
-            <span class="story-card-dist">~200 m del hotel</span>
+            <span class="story-card-dist" data-i18n="card_3_dist">~200 m del hotel</span>
           </div>
         </div>
 
@@ -511,10 +510,10 @@
                 <path d="M22 10l-10-5L2 10l10 5 10-5z" />
                 <path d="M6 12v5c0 2 3 4 6 4s6-2 6-4v-5" />
               </svg></div>
-            <h3 class="story-card-title">Universidad del Cauca</h3>
-            <p class="story-card-text">Una de las universidades más antiguas de Colombia, fundada en 1827. Su campus
+            <h3 class="story-card-title" data-i18n="card_4_title">Universidad del Cauca</h3>
+            <p class="story-card-text" data-i18n="card_4_text">Una de las universidades más antiguas de Colombia, fundada en 1827. Su campus
               histórico es un referente académico y cultural del suroccidente colombiano.</p>
-            <span class="story-card-dist">~900 m del hotel</span>
+            <span class="story-card-dist" data-i18n="card_4_dist">~900 m del hotel</span>
           </div>
         </div>
 
@@ -529,10 +528,10 @@
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2v20M2 12h20" />
               </svg></div>
-            <h3 class="story-card-title">Semana Santa</h3>
-            <p class="story-card-text">Declarada Patrimonio Inmaterial de la Humanidad por la UNESCO. Procesiones
+            <h3 class="story-card-title" data-i18n="card_5_title">Semana Santa</h3>
+            <p class="story-card-text" data-i18n="card_5_text">Declarada Patrimonio Inmaterial de la Humanidad por la UNESCO. Procesiones
               nocturnas, música sacra y una tradición que datos del siglo XVI.</p>
-            <span class="story-card-dist">Patrimonio UNESCO</span>
+            <span class="story-card-dist" data-i18n="card_5_dist">Patrimonio UNESCO</span>
           </div>
         </div>
 
@@ -548,10 +547,10 @@
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 8v8M8 12h8" />
               </svg></div>
-            <h3 class="story-card-title">Centros Hospitalarios</h3>
-            <p class="story-card-text">Colindante con el Hospital San José, Centro Médico Los Andes y Clínica San
+            <h3 class="story-card-title" data-i18n="card_6_title">Centros Hospitalarios</h3>
+            <p class="story-card-text" data-i18n="card_6_text">Colindante con el Hospital San José, Centro Médico Los Andes y Clínica San
               Rafael. Ideal para acompañantes de pacientes que necesitan alojamiento cercano.</p>
-            <span class="story-card-dist">~300 m del hotel</span>
+            <span class="story-card-dist" data-i18n="card_6_dist">~300 m del hotel</span>
           </div>
         </div>
 
@@ -562,8 +561,8 @@
   <!-- ═══ CTA ═══ -->
   <section class="cta-section" id="contact">
     <div class="reveal">
-      <h2 class="cta-title">¿Listo para su estadía en Popayán?</h2>
-      <p class="cta-text">Contáctenos directamente y reserve su habitación hoy mismo.</p>
+      <h2 class="cta-title" data-i18n="cta_title">¿Listo para su estadía en Popayán?</h2>
+      <p class="cta-text" data-i18n="cta_text">Contáctenos directamente y reserve su habitación hoy mismo.</p>
       <div class="cta-buttons">
         <a href="https://wa.me/573023022707?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Hotel%20Los%20Angeles%20Country"
           target="_blank" class="cta-btn-wa">
@@ -580,7 +579,7 @@
             <path
               d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
-          Llamar: 302 302 2707
+          <span data-i18n="cta_call">Llamar: 302 302 2707</span>
         </a>
       </div>
     </div>
@@ -591,30 +590,29 @@
     <div class="footer-content">
       <div>
         <div class="footer-brand-name">Hotel Los Angeles Country</div>
-        <p class="footer-brand-desc">
+        <p class="footer-brand-desc" data-i18n="footer_brand_desc">
           Alojamiento confortable en el corazón de Popayán. 6 habitaciones con baño privado, excelente atención y la
           mejor ubicación.
         </p>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Contacto</div>
-        <p>Cra. 6 #16N-30</p>
-        <p>Popayán, Cauca</p>
-        <p>Colombia</p>
+        <div class="footer-col-title" data-i18n="footer_contact">Contacto</div>
+        <p>Carrera 6 #16N-30<br>Popayán, Cauca, Colombia</p>
         <a href="tel:+573023022707">+57 302 302 2707</a>
-        <a href="https://wa.me/573023022707" target="_blank">WhatsApp</a>
+        <a href="mailto:reservas@hotellosangelescountry.com">reservas@hotellosangelescountry.com</a>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Navegación</div>
-        <a href="#about">Nosotros</a>
-        <a href="#rooms">Habitaciones</a>
-        <a href="#popayan">Popayán</a>
-        <a href="#location">Ubicación</a>
-        <a href="#contact">Contacto</a>
+        <div class="footer-col-title" data-i18n="footer_links">Enlaces</div>
+        <a href="#" data-i18n="nav_home">Inicio</a>
+        <a href="#about" data-i18n="nav_about">Nosotros</a>
+        <a href="#rooms" data-i18n="nav_rooms">Habitaciones</a>
+        <a href="#popayan" data-i18n="nav_popayan">Popayán</a>
+        <a href="#location" data-i18n="nav_location">Ubicación</a>
+        <a href="#contact" data-i18n="footer_contact">Contacto</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Hotel Los Angeles Country. Todos los derechos reservados.</span>
+      <span class="footer-copy" data-i18n="footer_copy">© 2026 Hotel Los Angeles Country. Todos los derechos reservados.</span>
     </div>
     <div class="footer-rumbo">
       <a href="https://rumbo3d.com" target="_blank" rel="noopener noreferrer" class="footer-rumbo-link">
@@ -628,36 +626,36 @@
   <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
     <div class="modal">
       <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
-      <h3 class="modal-title" id="bookingModalTitle">Resumen de Reserva</h3>
-      <p class="modal-subtitle">Confirme los detalles y reserve por WhatsApp</p>
+      <h3 class="modal-title" id="bookingModalTitle" data-i18n="modal_title">Resumen de Reserva</h3>
+      <p class="modal-subtitle" data-i18n="modal_subtitle">Confirme los detalles y reserve por WhatsApp</p>
 
 
       <div class="modal-row">
-        <span class="modal-row-label">Check-in</span>
+        <span class="modal-row-label" data-i18n="modal_checkin">Check-in</span>
         <span class="modal-row-value" id="modalCheckin">—</span>
       </div>
       <div class="modal-row">
-        <span class="modal-row-label">Check-out</span>
+        <span class="modal-row-label" data-i18n="modal_checkout">Check-out</span>
         <span class="modal-row-value" id="modalCheckout">—</span>
       </div>
       <div class="modal-row">
-        <span class="modal-row-label">Noches</span>
+        <span class="modal-row-label" data-i18n="modal_nights">Noches</span>
         <span class="modal-row-value" id="modalNights">—</span>
       </div>
       <div class="modal-row">
-        <span class="modal-row-label">Huéspedes</span>
+        <span class="modal-row-label" data-i18n="guests">Huéspedes</span>
         <span class="modal-row-value" id="modalGuests">—</span>
       </div>
       <div class="modal-row">
-        <span class="modal-row-label">Habitaciones</span>
+        <span class="modal-row-label" data-i18n="rooms_label">Habitaciones</span>
         <span class="modal-row-value" id="modalRooms">—</span>
       </div>
       <div class="modal-row">
-        <span class="modal-row-label">Precio / hab / noche</span>
+        <span class="modal-row-label" data-i18n="modal_price_note">Precio / hab / noche</span>
         <span class="modal-row-value" id="modalPriceNight">—</span>
       </div>
       <div class="modal-total">
-        <span class="modal-total-label">Total estimado</span>
+        <span class="modal-total-label" data-i18n="estimated_total">Total estimado</span>
         <span class="modal-total-value" id="modalTotal">—</span>
       </div>
 
@@ -668,16 +666,16 @@
           <path
             d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.693-6.42-1.882l-.447-.29-2.646.887.887-2.646-.29-.447A9.955 9.955 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
         </svg>
-        Reservar por WhatsApp
+        <span data-i18n="modal_btn">Reservar por WhatsApp</span>
       </a>
-      <p class="modal-note">Será redirigido a WhatsApp para confirmar su reserva.</p>
+      <p class="modal-note" data-i18n="modal_note">Será redirigido a WhatsApp para confirmar su reserva.</p>
     </div>
   </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=5"></script>
 </body>
 
 </html>
