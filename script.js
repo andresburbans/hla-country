@@ -776,23 +776,23 @@
 
     var isEn = currentLang === 'en';
     var msg = isEn ?
-      'Hello! I\'d like to book a room at Hotel Los Angeles Country.' + '\n\n' +
-      'Arrival: ' + formatDateLocalized(ci) + '\n' +
-      'Departure: ' + formatDateLocalized(co) + '\n' +
-      nights + ' night' + (nights > 1 ? 's' : '') + ' · ' +
-      guests + ' guest' + (guests > 1 ? 's' : '') + ' · ' +
-      rooms + ' room' + (rooms > 1 ? 's' : '') + '\n' +
-      'Estimated total: ' + formatCOP(total) + '\n\n' +
-      'Is there availability? Thank you!'
+      'Hello! I\'d like to book a room at *Hotel Los Angeles Country* . 🛏️' + '\n\n' +
+      '*Arrival:* ' + formatDateLocalized(ci) + '\n' +
+      '*Departure:* ' + formatDateLocalized(co) + '\n' +
+      '*' + nights + '* ' + (nights === 1 ? 'night' : 'nights') + ' · ' +
+      '*' + guests + '* ' + (guests === 1 ? 'guest' : 'guests') + ' · ' +
+      '*' + rooms + '* ' + (rooms === 1 ? 'room' : 'rooms') + '\n' +
+      '*Estimated total:* ' + formatCOP(total) + '\n\n' +
+      'Is there availability? Thank you! ☺️'
       :
-      '¡Hola! Quiero reservar una habitación en el Hotel Los Angeles Country.' + '\n\n' +
-      'Llegada: ' + formatDateLocalized(ci) + '\n' +
-      'Salida: ' + formatDateLocalized(co) + '\n' +
-      nights + (nights === 1 ? ' noche' : ' noches') + ' · ' +
-      guests + (guests === 1 ? ' huésped' : ' huéspedes') + ' · ' +
-      rooms + (rooms === 1 ? ' habitación' : ' habitaciones') + '\n' +
-      'Total estimado: ' + formatCOP(total) + '\n\n' +
-      '¿Hay disponibilidad? ¡Gracias!';
+      '¡Hola! Quiero reservar una habitación en el *Hotel Los Angeles Country* . 🛏️' + '\n\n' +
+      '*Llegada:* ' + formatDateLocalized(ci) + '\n' +
+      '*Salida:* ' + formatDateLocalized(co) + '\n' +
+      '*' + nights + '* ' + (nights === 1 ? 'noche' : 'noches') + ' · ' +
+      '*' + guests + '* ' + (guests === 1 ? 'huésped' : 'huéspedes') + ' · ' +
+      '*' + rooms + '* ' + (rooms === 1 ? 'habitación' : 'habitaciones') + '\n' +
+      '*Total estimado:* ' + formatCOP(total) + '\n\n' +
+      '¿Hay disponibilidad? ¡Gracias! ☺️';
 
     var waBtn = document.getElementById('modalWaBtn');
     if (waBtn) waBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
