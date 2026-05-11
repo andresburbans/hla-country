@@ -19,6 +19,7 @@ yarn-error.log*
 .agents/
 skills-lock.json
 .gemini/
-
+generate-og.py
+optimizador.py
 # Cloudflare wrangler
 .wrangler/
