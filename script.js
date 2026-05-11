@@ -551,29 +551,29 @@
 
     function moveControlsIntoCalendar(instance) {
       if (!instance || !instance.calendarContainer) return;
-      
+
       var footer = instance.calendarContainer.querySelector('.fp-custom-footer');
       if (!footer) {
         footer = document.createElement('div');
         footer.className = 'fp-custom-footer';
-        
+
         // Inject dynamic label element instead of CSS pseudo-content
         var headerLabel = document.createElement('div');
         headerLabel.className = 'fp-footer-label';
         headerLabel.textContent = TRANSLATIONS[currentLang].reservation_details || 'Reservation details';
         footer.appendChild(headerLabel);
-        
+
         instance.calendarContainer.appendChild(footer);
       } else {
         // Update text if it already exists but language might have changed
         var label = footer.querySelector('.fp-footer-label');
         if (label) label.textContent = TRANSLATIONS[currentLang].reservation_details || 'Reservation details';
       }
-      
+
       var gRow = document.getElementById('guestRow');
       var rRow = document.getElementById('roomRow');
       var pEst = document.getElementById('priceEstimate');
-      
+
       // Create Confirm button (now "Reserve Now" on mobile) if it doesn't exist yet
       var applyBtn = footer.querySelector('.fp-apply-btn');
       if (!applyBtn) {
@@ -581,7 +581,7 @@
         applyBtn.type = 'button';
         applyBtn.className = 'fp-apply-btn';
         applyBtn.textContent = TRANSLATIONS[currentLang].view_rooms || 'Reservar ahora';
-        applyBtn.addEventListener('click', function(e) {
+        applyBtn.addEventListener('click', function (e) {
           e.stopPropagation();
           instance.close(); // close calendar modal first
           if (typeof openBookingModal === 'function') {
@@ -592,7 +592,7 @@
         // Ensure text is updated if language changes
         applyBtn.textContent = TRANSLATIONS[currentLang].view_rooms || 'Reservar ahora';
       }
-      
+
       // Always append in correct order: controls first, then button last
       if (gRow) footer.appendChild(gRow);
       if (rRow) footer.appendChild(rRow);
@@ -604,7 +604,7 @@
       var gRow = document.getElementById('guestRow');
       var rRow = document.getElementById('roomRow');
       var pEst = document.getElementById('priceEstimate');
-      
+
       if (originalWidget && originalSubmitBtn) {
         if (gRow) originalWidget.insertBefore(gRow, originalSubmitBtn);
         if (rRow) originalWidget.insertBefore(rRow, originalSubmitBtn);
@@ -644,7 +644,7 @@
     });
 
     // If user resizes window back to desktop, push controls back to widget
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
       if (isDesktop()) {
         restoreControlsFromCalendar();
       }
@@ -664,9 +664,9 @@
         }
       });
     }
-    
+
     // Close desktop calendar when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       var calBox = document.getElementById('calendarBox');
       if (calBox && calBox.classList.contains('active')) {
         if (!calBox.contains(e.target) && (!dateContainer || !dateContainer.contains(e.target))) {
@@ -701,9 +701,9 @@
   }
 
   /* ── Open Booking Summary Modal logic ── */
-  window.openBookingModal = function(e) {
+  window.openBookingModal = function (e) {
     if (e && typeof e.preventDefault === 'function') e.preventDefault();
-    
+
     var ci = checkinInput ? checkinInput.value : '';
     var co = checkoutInput ? checkoutInput.value : '';
     if (!ci || !co) return;
