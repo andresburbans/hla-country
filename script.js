@@ -465,6 +465,56 @@
       });
     }
 
+    /* ── Helper Functions for Mobile Modal Content Moving ── */
+    var originalWidget = document.getElementById('bookingWidget');
+    var originalSubmitBtn = document.getElementById('viewRoomsBtn');
+
+    function moveControlsIntoCalendar(instance) {
+      if (!instance || !instance.calendarContainer) return;
+      
+      var footer = instance.calendarContainer.querySelector('.fp-custom-footer');
+      if (!footer) {
+        footer = document.createElement('div');
+        footer.className = 'fp-custom-footer';
+        instance.calendarContainer.appendChild(footer);
+      }
+      
+      var gRow = document.getElementById('guestRow');
+      var rRow = document.getElementById('roomRow');
+      var pEst = document.getElementById('priceEstimate');
+      
+      // Move elements if they exist
+      if (gRow) footer.appendChild(gRow);
+      if (rRow) footer.appendChild(rRow);
+      if (pEst) footer.appendChild(pEst);
+      
+      // Create or reuse Confirm button
+      var applyBtn = footer.querySelector('.fp-apply-btn');
+      if (!applyBtn) {
+        applyBtn = document.createElement('button');
+        applyBtn.type = 'button';
+        applyBtn.className = 'fp-apply-btn';
+        applyBtn.textContent = (currentLang === 'es') ? 'Confirmar' : 'Confirm';
+        applyBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          instance.close();
+        });
+        footer.appendChild(applyBtn);
+      }
+    }
+
+    function restoreControlsFromCalendar() {
+      var gRow = document.getElementById('guestRow');
+      var rRow = document.getElementById('roomRow');
+      var pEst = document.getElementById('priceEstimate');
+      
+      if (originalWidget && originalSubmitBtn) {
+        if (gRow) originalWidget.insertBefore(gRow, originalSubmitBtn);
+        if (rRow) originalWidget.insertBefore(rRow, originalSubmitBtn);
+        if (pEst) originalWidget.insertBefore(pEst, originalSubmitBtn);
+      }
+    }
+
     // Mobile fallback: popup picker (also used by date cards click)
     fpInstance = flatpickr(fpTrigger, {
       mode: "range",
@@ -474,7 +524,17 @@
       showMonths: 1,
       position: isDesktop() ? "left" : "above",
       locale: typeof flatpickr.l10ns !== 'undefined' ? flatpickr.l10ns.es : "default",
-      onClose: function (selectedDates) {
+      onOpen: function (selectedDates, dateStr, instance) {
+        if (!isDesktop()) {
+          document.body.style.overflow = 'hidden';
+          moveControlsIntoCalendar(instance);
+        }
+      },
+      onClose: function (selectedDates, dateStr, instance) {
+        if (!isDesktop()) {
+          document.body.style.overflow = '';
+          restoreControlsFromCalendar();
+        }
         handleDateSelection(selectedDates);
         // Sync inline picker if desktop
         if (fpInlineInstance && selectedDates.length === 2) {
@@ -483,6 +543,13 @@
       },
       onChange: function (selectedDates) {
         handleDateSelection(selectedDates);
+      }
+    });
+
+    // If user resizes window back to desktop, push controls back to widget
+    window.addEventListener('resize', function() {
+      if (isDesktop()) {
+        restoreControlsFromCalendar();
       }
     });
 

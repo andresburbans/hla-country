@@ -1722,26 +1722,245 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
   }
 
   .booking-widget {
-    padding: 1.5rem 1.25rem;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 1rem 2rem !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 0 !important;
   }
 
-  .lux-date-grid-container {
+  /* Hide selectors in normal widget flow on mobile, as they now live in the modal */
+  #bookingWidget > .lux-extras-row,
+  #bookingWidget > .booking-price-estimate {
+    display: none !important;
+  }
+
+  /* Unified Date Bar & Button (Image 2 Style) */
+  .lux-date-grid-container.unified-picker {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0 !important;
+    background: white !important;
+    border-radius: 8px 0 0 8px;
+    margin: 0 !important;
+    padding: 0.75rem 0 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    flex: 1;
+  }
+
+  .lux-date-column {
+    flex: 1;
+    padding: 0 0.75rem;
+    display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .lux-date-column:first-of-type {
+    border-right: 1px solid #efefef;
+  }
+
+  .lux-date-card {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    align-items: flex-start !important;
+    flex: none !important;
+  }
+
+  .lux-date-label {
+    font-size: 0.65rem !important;
+    color: var(--text-light) !important;
+    margin-bottom: 3px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
   .lux-date-display {
-    padding: 0.75rem 1rem;
-    gap: 0.75rem;
-    min-height: auto;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 4px !important;
+    padding: 0 !important;
   }
 
   .lux-date-big {
-    font-size: 1.8rem;
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    color: var(--blue) !important;
+  }
+
+  .lux-date-details {
+    flex-direction: row !important;
+    gap: 2px !important;
   }
 
   .lux-date-details span:first-child {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: var(--blue) !important;
+  }
+
+  .lux-date-details span:last-child,
+  .lux-date-caret {
+    display: none !important;
+  }
+
+  .lux-submit-btn {
+    grid-column: 2;
+    grid-row: 2;
+    height: 100%;
+    min-width: 65px;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 0 8px 8px 0 !important;
+    background: var(--gold) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lux-submit-btn span {
+    display: none;
+  }
+
+  .lux-submit-btn svg {
+    width: 24px;
+    height: 24px;
+    margin: 0 !important;
+    transform: none !important;
+  }
+
+  /* ── MODAL INTEGRATION STYLES ── */
+  .fp-custom-footer {
+    background: #f9f9fb;
+    padding: 1rem 1rem 1.25rem;
+    border-top: 1px solid #eee;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .fp-custom-footer::before {
+    content: 'Detalles de reserva';
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    opacity: 0.8;
+  }
+
+  .fp-custom-footer .lux-extras-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.65rem 0.25rem !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-top: 1px solid #eee !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
+  .fp-custom-footer .lux-extras-row:first-of-type {
+    border-top: none !important;
+  }
+
+  .fp-custom-footer .lux-guests-label {
+    color: var(--blue) !important;
+    font-weight: 500 !important;
+    font-size: 0.85rem !important;
+  }
+
+  .fp-custom-footer .lux-counter button {
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eee;
+  }
+
+  .fp-custom-footer .booking-price-estimate {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 0.75rem !important;
+    padding: 0.75rem 0.5rem !important;
+    border-top: 2px solid #e5e7eb !important;
+    background: white !important;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  }
+
+  .fp-custom-footer .price-estimate-label {
+    color: var(--text-light) !important;
+    font-size: 0.7rem !important;
+  }
+
+  .fp-custom-footer .price-estimate-value {
+    color: var(--blue) !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+  }
+
+  .fp-apply-btn {
+    width: 100%;
+    padding: 0.85rem;
+    margin-top: 1rem;
+    background: var(--blue);
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
     font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(6, 34, 107, 0.2);
+    transition: transform 0.2s;
+  }
+
+  .fp-apply-btn:active {
+    transform: scale(0.97);
+  }
+
+  /* Flatpickr Modal Behavior (Image 3 Style) */
+  body .flatpickr-calendar {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    z-index: 99999 !important;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.6), 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+    animation: fpFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Adaptive constraints for injected content */
+    height: auto !important;
+    min-width: 310px !important;
+    max-width: 92vw !important;
+    max-height: 92vh !important;
+    overflow-y: auto !important;
+    border-radius: 8px !important;
+  }
+
+  @keyframes fpFadeIn {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -45%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
   }
 
   .cta-buttons {
@@ -1797,5 +2016,4 @@ body.menu-active .nav-menu-icon span:nth-child(3) {
 .flatpickr-day.startRange.hasTime,
 .flatpickr-day.endRange.hasTime {
   border-radius: 50% !important;
-}
 }
