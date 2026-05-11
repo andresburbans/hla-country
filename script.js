@@ -583,6 +583,7 @@
         applyBtn.textContent = TRANSLATIONS[currentLang].view_rooms || 'Reservar ahora';
         applyBtn.addEventListener('click', function (e) {
           e.stopPropagation();
+          instance._explicitClose = true;
           instance.close(); // close calendar modal first
           if (typeof openBookingModal === 'function') {
             openBookingModal(); // directly trigger the summary popup
@@ -629,6 +630,12 @@
       },
       onClose: function (selectedDates, dateStr, instance) {
         if (!isDesktop()) {
+          // If range complete and not explicit close, prevent auto-close
+          if (selectedDates.length === 2 && !instance._explicitClose) {
+            instance.open();
+            return;
+          }
+          instance._explicitClose = false;
           document.body.style.overflow = '';
           restoreControlsFromCalendar();
         }
@@ -732,23 +739,23 @@
 
     var isEn = currentLang === 'en';
     var msg = isEn ?
-      'Hello, I would like to book at Hotel Los Angeles Country:\n' +
-      '*Check-in:* ' + formatDateLocalized(ci) + '\n' +
-      '*Check-out:* ' + formatDateLocalized(co) + '\n' +
-      '*Nights:* ' + nights + '\n' +
-      '*Guests:* ' + guests + '\n' +
-      '*Rooms:* ' + rooms + '\n' +
-      '*Estimated Total:* ' + formatCOP(total) + '\n' +
-      'Is availability confirmed?'
+      'Hello! I\'d like to book a room at Hotel Los Angeles Country.' + '\n\n' +
+      'Arrival: ' + formatDateLocalized(ci) + '\n' +
+      'Departure: ' + formatDateLocalized(co) + '\n' +
+      nights + ' night' + (nights > 1 ? 's' : '') + ' · ' +
+      guests + ' guest' + (guests > 1 ? 's' : '') + ' · ' +
+      rooms + ' room' + (rooms > 1 ? 's' : '') + '\n' +
+      'Estimated total: ' + formatCOP(total) + '\n\n' +
+      'Is there availability? Thank you!'
       :
-      'Hola, quiero reservar en Hotel Los Angeles Country:\n' +
-      '*Check-in:* ' + formatDateLocalized(ci) + '\n' +
-      '*Check-out:* ' + formatDateLocalized(co) + '\n' +
-      '*Noches:* ' + nights + '\n' +
-      '*Huéspedes:* ' + guests + '\n' +
-      '*Habitaciones:* ' + rooms + '\n' +
-      '*Total estimado:* ' + formatCOP(total) + '\n' +
-      '¿Hay disponibilidad?';
+      '¡Hola! Quiero reservar una habitación en el Hotel Los Angeles Country.' + '\n\n' +
+      'Llegada: ' + formatDateLocalized(ci) + '\n' +
+      'Salida: ' + formatDateLocalized(co) + '\n' +
+      nights + (nights === 1 ? ' noche' : ' noches') + ' · ' +
+      guests + (guests === 1 ? ' huésped' : ' huéspedes') + ' · ' +
+      rooms + (rooms === 1 ? ' habitación' : ' habitaciones') + '\n' +
+      'Total estimado: ' + formatCOP(total) + '\n\n' +
+      '¿Hay disponibilidad? ¡Gracias!';
 
     var waBtn = document.getElementById('modalWaBtn');
     if (waBtn) waBtn.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
@@ -760,8 +767,15 @@
     }
   };
 
-  if (viewBtn && modal) {
-    viewBtn.addEventListener('click', window.openBookingModal);
+  if (viewBtn) {
+    viewBtn.addEventListener('click', function (e) {
+      if (!isDesktop() && typeof fpInstance !== 'undefined' && fpInstance) {
+        e.preventDefault();
+        fpInstance.open();
+      } else {
+        window.openBookingModal(e);
+      }
+    });
   }
 
   /* ── Close modal ── */
